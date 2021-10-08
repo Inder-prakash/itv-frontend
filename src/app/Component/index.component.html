@@ -1,0 +1,70 @@
+
+<body>
+    <div class="overlay"></div>
+
+    <video poster="https://blog.yellowoctopus.com.au/wp-content/uploads/2018/05/yellow-octopus-batman-pictures-1.jpg" id="bgvid" playsinline autoplay muted loop>
+    <source src="assets/a.mp4" type="video/mp4">
+    
+    </video>
+    <script>
+    
+    var vid = document.getElementById("bgvid");
+var pauseButton = document.querySelector("#polina button");
+
+if (window.matchMedia('(prefers-reduced-motion)').matches) {
+    vid.removeAttribute("autoplay");
+    vid.pause();
+    pauseButton.innerHTML = "Paused";
+}
+
+function vidFade() {
+  vid.classList.add("stopfade");
+}
+
+vid.addEventListener('ended', function()
+{
+// only functional if "loop" is removed 
+vid.pause();
+// to capture IE10
+vidFade();
+}); 
+
+
+pauseButton.addEventListener("click", function() {
+  vid.classList.toggle("stopfade");
+  if (vid.paused) {
+    vid.play();
+    pauseButton.innerHTML = "Pause";
+  } else {
+    vid.pause();
+    pauseButton.innerHTML = "Paused";
+  }
+})
+
+
+    </script>
+    <!-- <video playsinline="playsinline" autoplay muted="muted" loop="loop">
+      <source src="assets/a.mp4" type="video/mp4">
+    </video> -->
+    
+    <div class="masthead">
+      <div class="masthead-bg"></div>
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-12 my-auto">
+            <div class="masthead-content text-white py-5 py-md-0">
+              <h1 class="mb-3">Welcome !!</h1>
+              <p class="mb-5">We're working hard to finish the development of this site.
+              Click below to continue</p>
+              <div class="input-group input-group-newsletter">
+                <div class="input-group-append">
+                  <a class="link" [routerLink]="['/Movies/latestmovie']" class="btn btn-secondary" >Continue !</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+ 

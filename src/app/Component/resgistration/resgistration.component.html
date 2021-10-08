@@ -1,0 +1,72 @@
+<!-- <div class="background-image"  [style.background-image]="image">
+
+<div  class="mydiv">
+    <div class="containerr" [style.background-image]="image2">
+        <div class="signup-content">
+            <form [formGroup]="myform" id="signup-form" class="signup-form">
+                <h2>Sign up </h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="User Name" formControlName="username">
+                    <div class="error"
+                         *ngIf="username.errors && (username.dirty || username.touched)">
+                      <p *ngIf="username.errors.required">Username is required</p>
+                      <p *ngIf="username.errors.minlength">Should be larger than 4 words</p>
+                      <p *ngIf="username.errors.maxlength">Not More than 10 words</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
+                    <div class="error"
+                         *ngIf="email.errors && (email.dirty || email.touched)">
+                      <p *ngIf="email.errors.required">Email is required</p>
+                      <p *ngIf="email.errors.pattern">Invalid Email -Id</p>
+                    </div>
+                  </div>
+                  <div class="form-group"> 
+                    <input [(ngModel)]="pas" type="password" class="form-control" placeholder="Enter password" formControlName="password">
+                    <div class="error"
+                         *ngIf=" password.errors && ( password.dirty ||  password.touched)">
+                      <p *ngIf=" password.errors.required">Password is required</p>
+                      <p *ngIf=" password.errors.pattern">
+                        Minimum 8 characters at least one uppercase letter,one lowercase letter,
+                        one number and one special character</p> 
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input [(ngModel)]="cpas" type="password" class="form-control" placeholder="Enter password again" formControlName="confirmed">
+                    <div class="error"
+                         *ngIf=" confirmed.errors && ( confirmed.dirty ||  confirmed.touched)">
+                      <p *ngIf=" confirmed.errors.required">Password is required</p>
+                    </div>
+                    <p class="error" *ngIf="pas != cpas">Password Not Matched</p>
+                  </div>
+
+                <div class="form-group">
+                    <input type="checkbox" formControlName="aggrement" name="agree-term" id="agree-term" class="agree-term" />
+                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" [disabled]="!myform.valid || pas != cpas" (click)="show()" name="submit" id="submit" class="form-submit submit" value="Sign up"/>
+                    <a [routerLink]="['/Login']" class="submit-link submit">Sign in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</div> -->
+
+<div class="container">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <input type="text" placeholder="username" formControlName="username" class="form-control col">
+    <input type="text" placeholder="password" formControlName="password" class="form-control col">
+    <input type="text" placeholder="email" formControlName="email" class="form-control col">
+    <div class="d-grid md-3">
+      <button class="btn btn-dark" type="submit">Save</button>
+    </div>
+  </form>
+</div>
