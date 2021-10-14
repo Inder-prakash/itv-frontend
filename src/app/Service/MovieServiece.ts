@@ -58,6 +58,9 @@ export class MovieService {
         return this.appconfig.geturl() + this.appconfig.deleteselected;
     }
 
+    search() {
+         return this.appconfig.geturl() + this.appconfig.search;
+    }
     //     DeleteMovie(){
     //     return this.appconfig.geturl()+this.appconfig.DeleteMovie;
     // }

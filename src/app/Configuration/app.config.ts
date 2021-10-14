@@ -16,6 +16,7 @@ export class AppConfig {
   public MovieByLanguage = "MovieByLanguage";
   public UpdateMovie = "UpdateMovie";
   public deleteselected = "deleteselected";
+  public search = "search";
 
   public newcollection = "newcollection";
   public viewmoveiepack = "viewmoveiepack";

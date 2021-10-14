@@ -1,6 +1,84 @@
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" [routerLink]="['/']">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav  mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/movies/pulbicmovies']">Latest Moveis</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/movies/englishhmovie']">English</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/movies/hindimovie']">Hindi</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Genre
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/movies/ActionMovies']">Action</a>
+                    <a class="dropdown-item" [routerLink]="['/movies/AdventureMovies']">Adventure</a>
+                    <a class="dropdown-item" [routerLink]="['/movies/AnimationMovies']">Animation</a>
+                    <a class="dropdown-item" [routerLink]="['/movies/ComedyMovies']">Comedy</a>
+                    <a class="dropdown-item" [routerLink]="['/movies/CrimeMovies']">Crime</a>
+                    <a class="dropdown-item" [routerLink]="['/movies/DramaMovies']">Drama</a>
+                    <a class="dropdown-item" [routerLink]="['/movies/HorrorMovies']">Horror</a>
+                    <a class="dropdown-item" [routerLink]="['/movies/RomanceMovies']">Romance</a>
+                    <a class="dropdown-item" [routerLink]="['/movies/SciFiMovies']">Sci-Fi</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/Movies/collection']">Collection</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/Movies/tv']">Tv Series</a>
+            </li>
+        </ul>
+
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button type="button"  placeholder="Search"  class="btn btn-primary">Welcome <b>{{username}}</b></button>
+            </li>
+            <li class="nav-item">
+                <input class="form-control searchtab" [(ngModel)] ="datas.search" type="text" (keyup)="onNameChanged()"
+                    placeholder="search" name="search">
+                   
+            </li>
+            &nbsp;
+            <li class="nav-item">
+                <button (click)="logout()" class="btn btn-danger"><b>LogOut </b> <i class="fa fa-power-off"
+                        aria-hidden="true"></i></button>
+            </li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+
+<!-- <div>
+    <button class="btn btn-dark" (click)="movieByLanguage('English')">English</button>&nbsp;
+    <button class="btn btn-dark" (click)="movieByLanguage('Hindi')">Hindi</button>&nbsp;
+
+    <button class="btn btn-dark" (click)="movieByCategories('Adventure')">Adventure</button>&nbsp;
+    <button class="btn btn-dark" (click)="movieByCategories('Animation')">Animation</button>&nbsp;
+    <button class="btn btn-dark" (click)="movieByCategories('Comedy')">Comedy</button>&nbsp;
+    <button class="btn btn-dark" (click)="movieByCategories('Crime')">Crime</button>&nbsp;
+    <button class="btn btn-dark" (click)="movieByCategories('Drama')">Drama</button>&nbsp;
+    <button class="btn btn-dark" (click)="movieByCategories('Horror')">Horror</button>&nbsp;
+    <button class="btn btn-dark" (click)="movieByCategories('Romance')">Romance</button>&nbsp;
+    <button class="btn btn-dark" (click)="movieByCategories('Sci-Fi')">Sci-Fi</button>&nbsp;
+</div>
 <div *ngFor="let a of movielist">
     &nbsp; &nbsp;<label>{{a['name']}}</label>&nbsp; &nbsp;<label>{{a['status']}}</label>&nbsp; &nbsp;<label>{{a['genere']}}</label>&nbsp; &nbsp;<label>{{a['language']}}</label>
 </div>
 <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total" 
 [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false"
-    [boundaryLinks]="true"></ngb-pagination>
+    [boundaryLinks]="true"></ngb-pagination><a class="dropdown-item" [routerLink]="['/Movies/ActionMovies']">Action</a>
+     -->

@@ -1,0 +1,7 @@
+
+<div *ngFor="let a of movielist">
+    &nbsp; &nbsp;<label>{{a['name']}}</label>&nbsp; &nbsp;<label>{{a['status']}}</label>&nbsp; &nbsp;<label>{{a['genere']}}</label>&nbsp; &nbsp;<label>{{a['language']}}</label>
+</div>
+<ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total" 
+[(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false"
+    [boundaryLinks]="true"></ngb-pagination>

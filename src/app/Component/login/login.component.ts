@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     public ls: LoginService, private sanitization: DomSanitizer,
   public http:HttpClientModule ) {
     this.myForm = formBuilder.group({
-      email: [''],password:['']
+      email: [''] , password:['']
     });
   };
 

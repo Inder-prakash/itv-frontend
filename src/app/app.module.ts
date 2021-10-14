@@ -40,6 +40,22 @@ import { ResgistrationComponent } from './Component/resgistration/resgistration.
 import { CookieService } from "ngx-cookie-service";
 import { MoviesComponent } from './Component/movies/movies.component';
 import { SerialComponent } from './Component/serial/serial.component';
+import { MoviebyStatusComponent } from './Component/movies/movieby-status/movieby-status.component';
+import { EnglishMoviesComponent } from './Component/movies/english-movies/english-movies.component';
+import { HindiMoviesComponent } from './Component/movies/hindi-movies/hindi-movies.component';
+import { ActionMoviesComponent } from './Component/movies/action-movies/action-movies.component';
+import { AdventureMoviesComponent } from './Component/movies/adventure-movies/adventure-movies.component';
+import { AnimationMoviesComponent } from './Component/movies/animation-movies/animation-movies.component';
+import { ComedyMoviesComponent } from './Component/movies/comedy-movies/comedy-movies.component';
+import { CrimeMoviesComponent } from './Component/movies/crime-movies/crime-movies.component';
+import { DramaMoviesComponent } from './Component/movies/drama-movies/drama-movies.component';
+import { HorrorMoviesComponent } from './Component/movies/horror-movies/horror-movies.component';
+import { RomanceMoviesComponent } from './Component/movies/romance-movies/romance-movies.component';
+import { ScifiMoviesComponent } from './Component/movies/scifi-movies/scifi-movies.component';
+import { SerchResultComponent } from './Component/movies/serch-result/serch-result.component';
+import { PlayerComponent } from './Component/movies/player/player.component';
+import { ViewserialsComponent } from './Component/serial/viewserials/viewserials.component';
+import { SerchserailComponent } from './Component/serial/serchserail/serchserail.component';
 // import { ComedyComponent } from './Component/movies/Genre/comedy/comedy.component';
 // import { SciFiComponent } from './Component/movies/Genre/sci-fi/sci-fi.component';
 // import { HorrorComponent } from './Component/movies/Genre/horror/horror.component';
@@ -51,30 +67,31 @@ import { SerialComponent } from './Component/serial/serial.component';
 // import { CrimeComponent } from './Component/movies/Genre/crime/crime.component';
 
 export const routes: Routes = [
-  // { path: 'Movies', component: MovieindexComponent ,
-    // children:[ 
-      // {path: 'hindimovie',  component:HindimovieComponent},
-      // {path: 'englishmovie',  component: EnglishmovieComponent},
+  {  path: 'movies', component: MoviesComponent ,
+    children: [
+       {path: 'search',  component:SerchResultComponent},
+      {path: 'pulbicmovies',  component:MoviebyStatusComponent},
+      {path: 'hindimovie',  component:HindiMoviesComponent},
+      {path: 'englishhmovie',  component: EnglishMoviesComponent},
       // {path: 'latestmovie',  component: LatestmoviesComponent},
       // {path: 'collection',  component: CollectionComponent},
       // {path: 'tv', component: TvComponent},
-      // {path: 'ComedyMovies', component:ComedyComponent},
-      // {path: 'SciFiMovies' , component:SciFiComponent},
-      // {path: 'HorrorMovies',component:HorrorComponent},
-      // {path: 'RomanceMovies' , component:RomanceComponent},
-      // {path: 'ActionMovies' , component:ActionComponent},
-      // {path: 'DramaMovies' , component:DramaComponent},
-      // {path: 'AnimationMovies' , component:AnimationComponent},
-      // {path: 'AdventureMovies' , component:AdventureComponent},
-      // {path: 'CrimeMovies' , component:CrimeComponent}
-    // ]},
+      {path: 'ComedyMovies', component:ComedyMoviesComponent},
+        {path: 'SciFiMovies' , component:ScifiMoviesComponent},
+      {path: 'HorrorMovies',component:HorrorMoviesComponent},
+      {path: 'RomanceMovies' , component:RomanceMoviesComponent},
+      {path: 'ActionMovies' , component:ActionMoviesComponent},
+      {path: 'DramaMovies' , component:DramaMoviesComponent},
+      {path: 'AnimationMovies' , component:AnimationMoviesComponent},
+      {path: 'AdventureMovies' , component:AdventureMoviesComponent},
+      {path: 'CrimeMovies' , component:CrimeMoviesComponent}
+    ]},
   // {path: 'Play/:id', component: PlayerComponent},
   // {path: 'Playtv/:id', component: PlyertvComponent},  
   { path: 'Login',  component: LoginComponent },
   { path: 'regis',  component: ResgistrationComponent },
   { path: '', component: IndexComponent },
-  { path: 'movies', component: MoviesComponent },
-    {path:'serial',component:SerialComponent},
+  { path: 'serial', component: SerialComponent },
   // { path:  'Admin', component:AdminindexComponent , 
   // children:[
   //   {path: 'addmovie',  component: AddmovieComponent},
@@ -115,7 +132,23 @@ export const routes: Routes = [
     // AdminbarComponent,
     ResgistrationComponent,
     MoviesComponent,
-    SerialComponent
+    SerialComponent,
+    MoviebyStatusComponent,
+    EnglishMoviesComponent,
+    HindiMoviesComponent,
+    ActionMoviesComponent,
+    AdventureMoviesComponent,
+    AnimationMoviesComponent,
+    ComedyMoviesComponent,
+    CrimeMoviesComponent,
+    DramaMoviesComponent,
+    HorrorMoviesComponent,
+    RomanceMoviesComponent,
+    ScifiMoviesComponent,
+    SerchResultComponent,
+    PlayerComponent,
+    ViewserialsComponent,
+    SerchserailComponent
     // SciFiComponent,
     // HorrorComponent,
     // RomanceComponent,
