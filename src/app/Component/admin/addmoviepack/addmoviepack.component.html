@@ -1,0 +1,87 @@
+
+<section class="vh-100 bg-image"
+    style="  background-size: cover; min-width: auto; background-image: url('../../../assets/images/body-bg.jpg');">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-left  align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2><b>Add A MoviePack</b></h2>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg"><b>Movie PackName</b></label>
+                                    <input type="text"  [(ngModel)]="name" class="form-control col">
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button type="button" (click)="newcollection()" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                                        type="submit"><b>Submit</b></button>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <select [(ngModel)]="baseid" class="form-control form-control-lg">
+                                        <option *ngFor="let m of movies" value="{{m['id']}}">{{m['name']}}</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Movie Ids
+                                                <a (click)="onEditCloseItems()" class="text-info float-right">
+                                                    <mat-icon aria-hidden="false">{{isEditItems ? 'do_not_disturb_on' : 'edit'}}</mat-icon>
+                                                </a>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                
+                                    <tbody *ngIf="!isEditItems">
+                                        <tr *ngFor="let field of fieldArray; let i = index">
+                                            <td *ngIf="field?.name">
+                                                <mat-icon (click)="deleteFieldValue(i)" aria-hidden="false">do_not_disturb_on </mat-icon> {{field.name}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                
+                                    <tbody *ngIf="isEditItems">
+                                        <tr *ngFor="let field of fieldArray; let i = index">
+                                            <td>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div (click)="deleteFieldValue(i)" class="input-group-text">
+                                                            <mat-icon aria-hidden="false">do_not_disturb_on</mat-icon>
+                                                        </div>
+                                                    </div>
+                                                    <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field['name']}}"
+                                                        placeholder="Name...">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                <button class="btn btn-secondary btn-lg1" type="button" (click)="addFieldValue(index)"
+                                                    style="margin-right:10px">Add More Item</button>
+                                                <button (click)="onEditCloseItems()" class="btn btn-primary btn-lg1" type="button">Save Items</button>
+                                            </td>
+                                
+                                        </tr>
+                                    </tbody>
+                                    <button (click)="newsequals()" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" type="button">Save Sequels</button>
+                                </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br><br><br><br><br><br><br><br>
+    </div>
+
+</section>
+
+
+
+
+
+
+

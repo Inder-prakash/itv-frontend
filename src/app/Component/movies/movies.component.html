@@ -35,10 +35,13 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/Movies/collection']">Collection</a>
+                <a class="nav-link" [routerLink]="['/movies/moviepack']">Collection</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/Movies/tv']">Tv Series</a>
+                <a class="nav-link" [routerLink]="['/movies/serial']">Tv Series</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/movies/search']">Search</a>
             </li>
         </ul>
 
@@ -47,11 +50,7 @@
             <li class="nav-item">
                 <button type="button"  placeholder="Search"  class="btn btn-primary">Welcome <b>{{username}}</b></button>
             </li>
-            <li class="nav-item">
-                <input class="form-control searchtab" [(ngModel)] ="datas.search" type="text" (keyup)="onNameChanged()"
-                    placeholder="search" name="search">
-                   
-            </li>
+&nbsp;&nbsp;
             &nbsp;
             <li class="nav-item">
                 <button (click)="logout()" class="btn btn-danger"><b>LogOut </b> <i class="fa fa-power-off"
@@ -61,7 +60,6 @@
     </div>
 </nav>
 <router-outlet></router-outlet>
-
 <!-- <div>
     <button class="btn btn-dark" (click)="movieByLanguage('English')">English</button>&nbsp;
     <button class="btn btn-dark" (click)="movieByLanguage('Hindi')">Hindi</button>&nbsp;

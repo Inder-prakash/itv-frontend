@@ -1,0 +1,6 @@
+.imgHolder {
+  position: relative;
+}
+.imgHolder span {
+  position: absolute;
+}

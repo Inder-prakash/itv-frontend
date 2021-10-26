@@ -1,0 +1,58 @@
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" [routerLink]="['/Admin/allusers']">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav  mr-auto">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Add Something
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/Admin/addmovie']">Add Movie</a>
+                    <a class="dropdown-item" [routerLink]="['/Admin/addmoviepack']">Add MoviePack</a>
+                    <a class="dropdown-item" [routerLink]="['/Admin/addtv']">Add Tv</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Manage
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/Admin/managemovie']">Movie</a>
+                    <a class="dropdown-item" [routerLink]="['/Admin/managecollection']">Collection</a>
+                    <a class="dropdown-item" [routerLink]="['/Admin/managetv']">Tv</a>
+                    <a class="dropdown-item" [routerLink]="['/Admin/allusers']">Users</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    More
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/Admin/viewmovies']">View Movie</a>
+                    <a class="dropdown-item" [routerLink]="['/Admin/viewtv']">View Tv</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/Admin/search']">Search</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button type="button" class="btn btn-primary">Welcome <b>{{username}}</b></button>
+            </li>
+            &nbsp;&nbsp;
+            &nbsp;&nbsp;
+            <li class="nav-item">
+                <button (click)="logout()" class="btn btn-danger"><b>LogOut </b> <i class="fa fa-power-off"
+                        aria-hidden="true"></i></button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

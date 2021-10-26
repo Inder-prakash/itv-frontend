@@ -1,0 +1,108 @@
+<section class="vh-100 bg-image"
+    style="  background-size: cover; min-width: auto; background-image: url('../../../assets/images/body-bg.jpg');">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-left  align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2><b>Add A Movie</b></h2>
+
+                            <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Movie Name</label>
+                                    <input type="text" formControlName="name" class="form-control form-control-lg"
+                                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                        <div *ngIf="f.name.errors.required">Movie Name is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Movie Image</label>
+                                    <input type="text" formControlName="image" class="form-control form-control-lg"
+                                        [ngClass]="{ 'is-invalid': submitted && f.image.errors }" />
+                                    <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+                                        <div *ngIf="f.image.errors.required">Movie Image is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Movie Size</label>
+                                    <input type="text" formControlName="size" class="form-control form-control-lg"
+                                        [ngClass]="{ 'is-invalid': submitted && f.size.errors }" />
+                                    <div *ngIf="submitted && f.size.errors" class="invalid-feedback">
+                                        <div *ngIf="f.size.errors.required">Movie Size is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Movie Language</label>
+                                    <select formControlName="Language" [ngClass]="{ 'is-invalid': submitted && f.Language.errors }" class="form-control form-control-lg">
+                                            <option value="Hindi">Hindi</option>
+                                            <option value="English">English</option>
+                                        </select>
+                                    <div *ngIf="submitted && f.Language.errors" class="invalid-feedback">
+                                        <div *ngIf="f.Language.errors.required">Movie Language is required</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Movie Status</label>
+                                    <select formControlName="Status" [ngClass]="{ 'is-invalid': submitted && f.Status.errors }"
+                                        class="form-control form-control-lg">
+                                        <option value="Public">Public</option>
+                                        <option value="Private">Private</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.Status.errors" class="invalid-feedback">
+                                        <div *ngIf="f.Status.errors.required">Movie Status is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Movie Genere</label>
+                                    <select formControlName="Genere" [ngClass]="{ 'is-invalid': submitted && f.Genere.errors }"
+                                        class="form-control form-control-lg">
+                                        <option value="Genere">Genere</option>
+                                        <option value="Comedy">Comedy</option>
+                                        <option value="Sci-Fi">Sci-Fi</option>
+                                        <option value="Horror">Horror</option>
+                                        <option value="Romance">Romance</option>
+                                        <option value="Action">Action</option>
+                                        <option value="Drama">Drama</option>
+                                        <option value="Animation">Animation</option>
+                                        <option value="Adventure">Adventure</option>
+                                        <option value="Crime">Crime</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.Genere.errors" class="invalid-feedback">
+                                        <div *ngIf="f.Genere.errors.required">Movie Genere is required</div>
+                                    </div>
+                                </div>    
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Movie Link</label>
+                                    <input type="text" formControlName="link" class="form-control form-control-lg"
+                                        [ngClass]="{ 'is-invalid': submitted && f.link.errors }" />
+                                    <div *ngIf="submitted && f.link.errors" class="invalid-feedback">
+                                        <div *ngIf="f.link.errors.required">Movie Link is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="button"
+                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                                        type="submit"><b>Submit</b></button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br><br><br><br><br><br><br><br>
+    </div>
+
+</section>

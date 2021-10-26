@@ -1,46 +1,49 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AppConfig {
   geturl() {
-     let base = "http://localhost:8080/";
-    // let base = "https://watchmore.herokuapp.com/";
+    // let base = 'http://localhost:8080/';
+    let base = 'https://watchmore.herokuapp.com/';
     return base;
   }
 
-  public AddMovie ="AddMovie";
-  public getmovie = "getmovie";
-  public ViewMovies = "ViewMovies";
-  public MovieByStatus = "MovieByStatus";
-  public MovieByCategories = "MovieByCategories";
-  public MovieByLanguage = "MovieByLanguage";
-  public UpdateMovie = "UpdateMovie";
-  public deleteselected = "deleteselected";
-  public search = "search";
+  public AddMovie = 'AddMovie';
+  public getmovie = 'getmovie';
+  public ViewMovies = 'ViewMovies';
+  public MovieByStatus = 'MovieByStatus';
+  public MovieByCategories = 'MovieByCategories';
+  public MovieByLanguage = 'MovieByLanguage';
+  public UpdateMovie = 'UpdateMovie';
+  public deleteselected = 'deleteselected';
+  public search = 'search';
 
-  public newcollection = "newcollection";
-  public viewmoveiepack = "viewmoveiepack";
-  public getmoviesByMoviePack = "getmoviesByMoviePack";
-  public updatemoviepackname = "updatemoviepackname";
-  public deletepack = "deletepack";
-  public newsequals="newsequals";
-  public getsequals="getsequals";
-  public udatesequal = "udatesequal";
-  
-  public login ="login";
-  public signup = "signup";
+  public newcollection = 'newcollection';
+  public viewmoveiepack = 'viewmoveiepack';
+  public getmoviesByMoviePack = 'getmoviesByMoviePack';
+  public updatemoviepackname = 'updatemoviepackname';
+  public deletepack = 'deletepack';
 
+  public newsequals = 'newsequals';
+  public getsequals = 'getsequals';
+  public udatesequal = 'udatesequal';
 
- 
-  
-  public addserial = "addserial";
-  public viewtv = "viewtv";
-  public gettv = "gettv";
-  public getTvByStatus = "getTvByStatus";
-  public updatepisodes = "updatepisodes";
-  public updatetv = "updatetv";
-  public deletetv = "deletetv";
-  
+  public login = 'login';
+  public signup = 'signup';
+  public updateUser = 'updateUser';
+  public deleteUser = 'deleteUser';
+  public allUsers = 'allUsers';
+
+  public addserial = 'addserial';
+  public viewtv = 'viewtv';
+  public gettv = 'gettv';
+  public getTvByStatus = 'getTvByStatus';
+  public updatepisodes = 'updatepisodes';
+  public updatetv = 'updatetv';
+  public deletetv = 'deletetv';
+  public uploadEpisodeByExcel = 'uploadEpisodeByExcel';
+  public downloadEpisodeInExcel = 'downloadEpisodeInExcel';
+
   //   public userauthorization = "userauthorization";
   // public adminauthorization = "adminauthorization";
   // public AddMovie ="AddMovie";

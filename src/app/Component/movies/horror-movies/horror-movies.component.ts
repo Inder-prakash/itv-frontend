@@ -1,41 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from 'ngx-spinner';
 import { MovieService } from 'src/app/Service/MovieServiece';
 import { Movie } from 'src/app/Modal/movie.model';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-horror-movies',
   templateUrl: './horror-movies.component.html',
-  styleUrls: ['./horror-movies.component.css']
+  styleUrls: ['./horror-movies.component.css'],
 })
 export class HorrorMoviesComponent implements OnInit {
-
-        page: any = 1;
+  page: any = 1;
   movielist = [];
   total = 0;
-  constructor(private spinner: NgxSpinnerService, private ms: MovieService,) { }
+  constructor(
+    private spinner: NgxSpinnerService,
+    private ms: MovieService,
+    public coo: CookieService,
+    public router: Router
+  ) {}
 
-      ngOnInit(): void {
-    this.movieByCategories(this.page);
+  ngOnInit(): void {
+    console.log(this.coo.get('UserName'));
+    if (this.coo.get('UserName') != '') {
+      this.movieByCategories(this.page);
+    } else {
+      this.router.navigateByUrl('/Login');
+    }
   }
 
- pageChanged(i: any) {
+  pageChanged(i: any) {
     this.movieByCategories(i);
   }
 
-      movieByCategories(i:any) {
+  movieByCategories(i: any) {
     this.spinner.show();
     let movie = new Movie();
-    movie.status = "Public";
-        movie.page = i;
-        movie.genere = "Horror";
-    this.ms.postService(this.ms.MovieByCategories(), movie).then(res => {
+    movie.status = 'Public';
+    movie.page = i;
+    movie.genere = 'Horror';
+    this.ms.postService(this.ms.MovieByCategories(), movie).then((res) => {
       if (res) {
         this.movielist = res[0].msg;
-        this.total = res[0].total;
+        this.total = res[0].total / 3;
         this.spinner.hide();
       }
     });
   }
-
 }

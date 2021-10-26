@@ -1,0 +1,14 @@
+.imgHolder {
+  position: relative;
+}
+.imgHolder span {
+  position: absolute;
+}
+.btne {
+  background-color: rgb(7, 55, 99);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 12px 12px 12px 12px;
+  text-decoration: none;
+}

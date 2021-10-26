@@ -1,0 +1,73 @@
+<section class="vh-100 bg-image"
+    style="  background-size: cover; min-width: auto; background-image: url('../../../assets/images/body-bg.jpg');">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-left  align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2><b>Add A Tv Serial</b></h2>
+
+                            <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Serial Name</label>
+                                    <input type="text" formControlName="name" class="form-control form-control-lg"
+                                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                        <div *ngIf="f.name.errors.required">Serial Name is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Serial Image</label>
+                                    <input type="text" formControlName="image" class="form-control form-control-lg"
+                                        [ngClass]="{ 'is-invalid': submitted && f.image.errors }" />
+                                    <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+                                        <div *ngIf="f.image.errors.required">Serial Image is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Serial Language</label>
+                                    <select formControlName="Language"
+                                        [ngClass]="{ 'is-invalid': submitted && f.Language.errors }"
+                                        class="form-control form-control-lg">
+                                        <option value="Hindi">Hindi</option>
+                                        <option value="English">English</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.Language.errors" class="invalid-feedback">
+                                        <div *ngIf="f.Language.errors.required">Serial Language is required</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Serial Status</label>
+                                    <select formControlName="Status"
+                                        [ngClass]="{ 'is-invalid': submitted && f.Status.errors }"
+                                        class="form-control form-control-lg">
+                                        <option value="Public">Public</option>
+                                        <option value="Private">Private</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.Status.errors" class="invalid-feedback">
+                                        <div *ngIf="f.Status.errors.required">Serial Status is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="button"
+                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                                        type="submit"><b>Submit</b></button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br><br><br><br><br><br><br><br>
+    </div>
+
+</section>

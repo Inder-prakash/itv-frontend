@@ -10,7 +10,6 @@ export class Movie {
     public status: any;
     public size: any;
     public genere: any;
-    public discription: any;
     public link: any;
     public page :any;
 }

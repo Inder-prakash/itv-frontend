@@ -1,4 +1,4 @@
-import { Sequals } from './sequals.model';
+import { Sequals } from './Sequals.model';
 
 describe('Sequals', () => {
   it('should create an instance', () => {

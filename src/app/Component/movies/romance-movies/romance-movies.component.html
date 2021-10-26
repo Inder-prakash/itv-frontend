@@ -1,6 +1,48 @@
-<div *ngFor="let a of movielist">
-    &nbsp; &nbsp;<label>{{a['name']}}</label>&nbsp; &nbsp;<label>{{a['status']}}</label>&nbsp;
-    &nbsp;<label>{{a['genere']}}</label>&nbsp; &nbsp;<label>{{a['language']}}</label>
+<div style=" min-height: 1000px;  background-size:cover;  background-attachment: fixed; background-image: url('../../../assets/images/body-bg2.jpg'); ">
+    <br><br><br>
+    <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
+        [(page)]="page" [maxSize]="6" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    <br>
+    <div class="container d-none d-sm-block">
+        <div class="row row-cols-1 row-cols-md-5 g-4">
+            <div *ngFor="let a of movielist" class="col mt-4">
+                <div style="width:182px ; height: 268px;" class="card h-100">
+                    <a data-toggle="tooltip" data-placement="top" title="a['name']" target="_blank"
+                        [routerLink]="['/Play']" [queryParams]="{id: a['id']}">
+                        <div class="imgHolder"><span style="width: 60px;"
+                                class="btn btn-warning btn-sm">{{a['language']}}</span></div>
+                        <img width="182px" height="268px" [src]="a['image']" class="card-img-top" alt="..." />
+                    </a>
+                    <div style="background-color: antiquewhite;" class="card-body">
+                        <h4 class="card-text"><b>{{a['name']}}</b></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container d-xl-none d-lg-none d-md-none  d-sm-none">
+        <div class="row row-cols-1 row-cols-md-1 g-4">
+            <div *ngFor="let a of movielist" class="col d-flex justify-content-center mt-4">
+                <div style="width:182px ; height: 268px;" class="card h-100">
+
+                    <a data-toggle="tooltip" data-placement="top" title="a['name']" target="_blank"
+                        [routerLink]="['/Play']" [queryParams]="{id: a['id']}">
+                        <div class="imgHolder"><span style="width: 60px;" class="btn btn-warning btn-sm">ff</span></div>
+                        <img width="182px" height="268px" [src]="a['image']" class="card-img-top" alt="..." />
+                    </a>
+                    <div style="background-color: antiquewhite;" class="card-body">
+                        <h4 class="card-title"><b>{{a['name']}}</b></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
+        [(page)]="page" [maxSize]="6" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    <br><br><br><br>
+    <br><br><br><br>
+
 </div>
-<ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
-    [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>

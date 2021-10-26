@@ -1,25 +1,30 @@
-import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from 'ngx-spinner';
 import { MovieService } from 'src/app/Service/MovieServiece';
 import { Movie } from 'src/app/Modal/movie.model';
-import { CookieService } from "ngx-cookie-service";
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
-  
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  styleUrls: ['./movies.component.css'],
 })
 export class MoviesComponent implements OnInit {
   page: any = 1;
-  search = "";
+  search = '';
   movielist = [];
   total = 0;
-  username = "";
-  
-  constructor(private spinner: NgxSpinnerService, private ms: MovieService, public coo: CookieService) { }
- 
+  username = '';
+
+  constructor(
+    private spinner: NgxSpinnerService,
+    private ms: MovieService,
+    public coo: CookieService,
+    public router: Router
+  ) {}
+
   datas: any;
 
   @Output() dataChange = new EventEmitter();
@@ -29,28 +34,24 @@ export class MoviesComponent implements OnInit {
     return this.datas;
   }
 
-   set data(value: any) {
+  set data(value: any) {
     this.dataChange.emit(value);
     this.datas = value;
   }
 
   ngOnInit(): void {
-
-  }
-
-  onNameChanged() {
-    var datas = {
-      page: 1, text: this.search
-    };
-    this.ms.postService(this.ms.search(), datas).then(res => {
-      if (res) {
-        console.log(res);
-      }
-    });
+    console.log(this.coo.get('UserName'));
+    console.log(this.coo.get('Role'));
+    if (this.coo.get('UserName') != '') {
+      this.username = this.coo.get('UserName');
+    } else {
+      this.router.navigateByUrl('/Login');
+    }
   }
 
   logout() {
-    
+    this.coo.deleteAll('/');
+    this.router.navigateByUrl('/Login');
   }
   // moviesByStatus(i:any) {
   //   this.spinner.show();
@@ -60,7 +61,7 @@ export class MoviesComponent implements OnInit {
   //   this.ms.postService(this.ms.MovieByStatus(), movie).then(res => {
   //     if (res) {
   //       this.movielist = res[0].msg;
-  //       this.total = res[0].total;
+  //       this.total = res[0].total/3;
   //       this.spinner.hide();
   //     }
   //   });
@@ -80,7 +81,7 @@ export class MoviesComponent implements OnInit {
   //       console.log(res[0].total);
   //       console.log(res[0].msg);
   //       this.movielist = res[0].msg;
-  //       this.total = res[0].total;
+  //       this.total = res[0].total/3;
   //       this.spinner.hide();
   //     }
   //   });
@@ -100,10 +101,9 @@ export class MoviesComponent implements OnInit {
   //       console.log(res[0].total);
   //       console.log(res[0].msg);
   //       this.movielist = res[0].msg;
-  //       this.total = res[0].total;
+  //       this.total = res[0].total/3;
   //       this.spinner.hide();
   //     }
   //   });
   // }
-  
 }

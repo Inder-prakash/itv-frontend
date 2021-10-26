@@ -1,1 +1,41 @@
-<p>player works!</p>
+
+<div style=" min-height: 1000px;  background-size:cover;  background-attachment: fixed; background-image: url('../../../assets/images/body-bg2.jpg'); ">
+    <br><br><br>
+
+    <div *ngIf="google == 'true' " class="container">
+        <div class="justify-center  align-items-center">
+                <iframe [src]="vidLink" width="100%" height="600" allow="autoplay"></iframe>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img [src]="image" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h1 class="card-title"><b>{{name}}</b></h1>
+
+                    <div class="card-text"><button class="btn btn-primary">{{language}}</button></div>
+                    <br>
+                    <div class="card-text"><button class="btn btn-primary">{{size}}</button></div>
+                    <br>
+                    <div class="card-text"><button class="btn btn-primary">{{genere}}</button></div>
+                    <br>
+                    <div class="card-text"><button (click)="down()" class="btn btn-success">DownLoad</button></div>
+                </div>
+            </div>
+            </div>
+            <div class="col-8">
+            <iframe [src]="trailer" width="100%" height="100%" allow="autoplay"></iframe>
+            </div>
+           
+        </div>
+    </div>
+
+</div>
+
+           
+          
+         
+ 

@@ -1,0 +1,26 @@
+
+<div style=" min-height: 1000px;  background-size:cover;  background-attachment: fixed; background-image: url('../../../assets/images/body-bg2.jpg'); ">
+<div class="container">
+    <br><br><br>
+<table  class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:30%;">Name</th>
+            <th style="width:30%;">Email</th>
+            <th style="width:10%;">Status</th>
+            <th style="width:30%;">Role</th>
+            <th style="width:10%;">Manage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of userslist">
+            <td><label>{{a['username']}}</label></td>
+            <td><label>{{a['email']}}</label></td>
+            <td><button type="button" (click)="updateStatus( a['id'],a['status'])">{{a['status']}}</button></td>
+            <td><button type="button" (click)="updateRole( a['id'],a['role'])">{{a['role']}}</button></td>
+            <td><button (click)="deleteUser(a['id'])" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
