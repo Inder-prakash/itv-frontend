@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MovieCollectionService } from 'src/app/Service/MovieCollectionServiece';
 import { Moviepack } from 'src/app/Modal/Moviepack.model';
-import { Sequals } from 'src/app/Modal/Sequals.model';
+import { Sequals } from 'src/app/Modal/sequals.model';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -73,7 +73,7 @@ export class ManagemoviepackComponent implements OnInit {
     console.log(base);
     this.spinner.show();
     for (var c of this.fieldArray) {
-      this.sequalsIds.push(c.name);
+      this.sequalsIds.push(c.id);
     }
     let sequals = new Sequals();
     sequals.baseid = base;

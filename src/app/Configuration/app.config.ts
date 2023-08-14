@@ -1,12 +1,25 @@
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import Swal from 'sweetalert2';
 
 @Injectable()
 export class AppConfig {
   geturl() {
+    if (this.coo.get('base') == '') {
+      this.baseUrl();
+      return this.coo.get('base');
+    }
+    return this.coo.get('base');
     // let base = 'http://localhost:8080/';
-    let base = 'https://watchmore.herokuapp.com/';
-    return base;
+    // let base = 'https://watchmore.herokuapp.com/';
+    // return base;
   }
+
+  constructor(
+    private spinner: NgxSpinnerService,
+    public coo: CookieService
+  ) { }
 
   public AddMovie = 'AddMovie';
   public getmovie = 'getmovie';
@@ -92,4 +105,19 @@ export class AppConfig {
   // public publictv = "publictv";
   // public userauthorization = "userauthorization";
   // public adminauthorization = "adminauthorization";
+
+  baseUrl() {
+    this.spinner.hide();
+    Swal.fire({
+      title: 'Update Url',
+      input: 'text',
+      confirmButtonText: 'Update',
+      showLoaderOnConfirm: true,
+    }).then((result) => {
+      if (result.value) {
+        this.coo.set("base", result.value);
+      }
+    });
+  }
+
 }

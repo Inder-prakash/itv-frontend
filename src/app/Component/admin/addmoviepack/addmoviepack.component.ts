@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MovieCollectionService } from 'src/app/Service/MovieCollectionServiece';
 import { Moviepack } from 'src/app/Modal/Moviepack.model';
-import { Sequals } from 'src/app/Modal/Sequals.model';
+import { Sequals } from 'src/app/Modal/sequals.model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MovieService } from 'src/app/Service/MovieServiece';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -38,7 +38,7 @@ export class AddmoviepackComponent implements OnInit {
     public ms: MovieService,
     private sanitization: DomSanitizer,
     public http: HttpClientModule
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     if (this.coo.get('UserName') != '') {
@@ -78,7 +78,7 @@ export class AddmoviepackComponent implements OnInit {
   onSubmit() {
     console.log(this.fieldArray);
   }
-  viewmoveiepack() {}
+  viewmoveiepack() { }
 
   newcollection() {
     if (this.name == '') {
