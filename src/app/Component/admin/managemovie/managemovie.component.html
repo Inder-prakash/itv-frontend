@@ -1,50 +1,57 @@
-
-
 <div
     style=" min-height: 1000px;  background-size:cover;  background-attachment: fixed; background-image: url('../../../assets/images/body-bg2.jpg'); ">
     <div class="container">
         <br><br><br>
-            <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
-                [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+        <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center"
+            [collectionSize]="total" [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false"
+            [boundaryLinks]="true"></ngb-pagination>
         <br>
-            <form [formGroup]="myForm" novalidate>
-        <table class="table table-striped">
-    <thead>
-        <tr>
-            <th><button (click)="deleteselected()" class="btn btn-danger">Delete Selected</button></th>
-            <th style="width:60%;">Movie Name</th>
-            <th style="width:20%;">Image</th>
-            <th style="width:10%;">Id</th>
-            <th style="width:10%;">Language</th>
-            <th style="width:10%;">Genere</th>
-            <th style="width:10%;">Status</th>
-            <th style="width:10%;" colspan="2">Manage</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let a of movielist index as i">
-            <Td><input type="checkbox" formControlName="checkboxs" name="check" value="{{a['id']}}"
-                    (change)="onChange(a['id'])"></Td>
-            <td><p class="btne" (click)="updateName(a['id'],a['name'])">{{a['name']}}</p></td>
-            <td><a><img (click)="updateImage(a['id'],a['image'])" [src]="a['image']" alt="404"
-                        width="100px" /></a></td>
-            <td>{{a['id']}}</td>
-            <td><button type="button" class="btn btn-info" (click)="updateLanguage( a['id'],a['language'])">{{a['language']}}</button></td>
-            <td><button type="button" class="btn btn-info" (click)="updateGenere( a['id'],a['genere'])">{{a['genere']}}</button></td>
-            <td><button type="button" class="btn btn-info" (click)="updateStatus( a['id'],a['status'])">{{a['status']}}</button></td>
-            <td><button [routerLink]="['/Play']" target="_blank" [queryParams]="{id: a['id']}" class="btn btn-danger">Play</button></td>
-            <td><button (click)="delete(a['id'])" class="btn btn-danger">Delete</button></td>
-        </tr>
-    </tbody>
-        </table>
+        <form [formGroup]="myForm" novalidate>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th><button (click)="deleteselected()" class="btn btn-danger">Delete</button></th>
+                        <th style="width:60%;">Movie Name</th>
+                        <th style="width:20%;">Image</th>
+                        <th style="width:10%;">Id</th>
+                        <th style="width:10%;">Size</th>
+                        <th style="width:10%;">Link</th>
+                        <th style="width:10%;">Language</th>
+                        <th style="width:10%;">Genere</th>
+                        <th style="width:10%;">Status</th>
+                        <th style="width:10%;" colspan="2">Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let a of movielist index as i">
+                        <Td><input type="checkbox" formControlName="checkboxs" name="check" value="{{a['id']}}"
+                                (change)="onChange(a['id'])"></Td>
+                        <td>
+                            <p class="btne" (click)="updateName(a['id'],a['name'])">{{a['name']}}</p>
+                        </td>
+                        <td><a><img (click)="updateImage(a['id'],a['image'])" [src]="a['image']" alt="404"
+                                    width="100px" /></a></td>
+                        <td>{{a['id']}}</td>
+                        <td><button type="button" class="btn btn-info"
+                                (click)="updateSize( a['id'],a['size'])">{{a['size']}}</button></td>
+                        <td><button type="button" class="btn btn-info"
+                                (click)="updateLink( a['id'],a['link'])">Link</button></td>
+                        <td><button type="button" class="btn btn-info"
+                                (click)="updateLanguage( a['id'],a['language'])">{{a['language']}}</button></td>
+                        <td><button type="button" class="btn btn-info"
+                                (click)="updateGenere( a['id'],a['genere'])">{{a['genere']}}</button></td>
+                        <td><button type="button" class="btn btn-info"
+                                (click)="updateStatus( a['id'],a['status'])">{{a['status']}}</button></td>
+                        <td><button [routerLink]="['/Play']" target="_blank" [queryParams]="{id: a['id']}"
+                                class="btn btn-danger">Play</button></td>
+                        <td><button (click)="delete(a['id'])" class="btn btn-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </form>
     </div>
     <br><br><br>
-        <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
-            [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-            <br><br><br><br><br><br>
+    <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
+        [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    <br><br><br><br><br><br>
 </div>
-
-
-
-  

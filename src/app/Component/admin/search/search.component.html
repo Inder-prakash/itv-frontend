@@ -3,15 +3,15 @@
 
     <br><br>
     <div class=" container">
-        <input class="form-control searchtab" [(ngModel)]="search" type="text" (keyup)="onNameChanged(1)" placeholder="search"
-            name="search">
+        <input class="form-control searchtab" [(ngModel)]="search" type="text" (keyup)="onNameChanged(1)"
+            placeholder="search" name="search">
         <br>
         <input type="radio" (change)="onNameChanged(1)" id="movie" [(ngModel)]="cat" name="cat" value="movie">
-          <label for="html">
+        <label for="html">
             <h1 style="color: ivory;"><b>Movie</b></h1>
         </label>
-          <input type="radio" (change)="onNameChanged(1)" id="tv" [(ngModel)]="cat" name="cat" value="tv">
-          <label for="css">
+        <input type="radio" (change)="onNameChanged(1)" id="tv" [(ngModel)]="cat" name="cat" value="tv">
+        <label for="css">
             <h1 style="color: ivory;"><b>Tv</b></h1>
         </label>
     </div>
@@ -19,104 +19,116 @@
     <br>
 
 
-<div *ngIf="cat == 'movie' " >
-    <div class="container">
+    <div *ngIf="cat == 'movie' ">
+        <div class="container">
+            <br><br><br>
+            <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center"
+                [collectionSize]="total" [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false"
+                [boundaryLinks]="true"></ngb-pagination>
+            <br>
+            <form [formGroup]="myForm" novalidate>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><button (click)="deleteselected()" class="btn btn-danger">Delete Selected</button></th>
+                            <th style="width:60%;">Movie Name</th>
+                            <th style="width:20%;">Image</th>
+                            <th style="width:10%;">Id</th>
+                            <th style="width:10%;">Size</th>
+                            <th style="width:10%;">Link</th>
+                            <th style="width:10%;">Language</th>
+                            <th style="width:10%;">Genere</th>
+                            <th style="width:10%;">Status</th>
+                            <th style="width:10%;" colspan="2">Manage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let a of movielist index as i">
+                            <Td><input type="checkbox" formControlName="checkboxs" name="check" value="{{a['id']}}"
+                                    (change)="onChange(a['id'])"></Td>
+                            <td>
+                                <p class="btne" (click)="updateName(a['id'],a['name'])">{{a['name']}}</p>
+                            </td>
+                            <td><a><img (click)="updateImageM(a['id'],a['image'])" [src]="a['image']" alt="404"
+                                        width="100px" /></a></td>
+                            <td>{{a['id']}}</td>
+                            <td><button type="button" class="btn btn-info"
+                                    (click)="updateSize( a['id'],a['size'])">{{a['size']}}</button></td>
+                            <td><button type="button" class="btn btn-info"
+                                    (click)="updateLink( a['id'],a['link'])">Link</button></td>
+                            <td><button type="button" class="btn btn-info"
+                                    (click)="updateLanguageM( a['id'],a['language'])">{{a['language']}}</button></td>
+                            <td><button type="button" class="btn btn-info"
+                                    (click)="updateGenere( a['id'],a['genere'])">{{a['genere']}}</button></td>
+                            <td><button type="button" class="btn btn-info"
+                                    (click)="updateStatusM( a['id'],a['status'])">{{a['status']}}</button></td>
+                            <td><button [routerLink]="['/Play']" target="_blank" [queryParams]="{id: a['id']}"
+                                    class="btn btn-danger">Play</button></td>
+                            <td><button (click)="delete(a['id'])" class="btn btn-danger">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
         <br><br><br>
-        <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
-            [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-        <br>
-        <form [formGroup]="myForm" novalidate>
+        <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center"
+            [collectionSize]="total" [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false"
+            [boundaryLinks]="true"></ngb-pagination>
+        <br><br><br><br><br><br>
+
+    </div>
+
+    <div *ngIf="cat == 'tv' ">
+        <div class="container">
+            <br><br><br>
+            <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center"
+                [collectionSize]="total" [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false"
+                [boundaryLinks]="true"></ngb-pagination>
+            <br>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th><button (click)="deleteselected()" class="btn btn-danger">Delete Selected</button></th>
-                        <th style="width:60%;">Movie Name</th>
-                        <th style="width:20%;">Image</th>
-                        <th style="width:10%;">Id</th>
-                        <th style="width:10%;">Language</th>
-                        <th style="width:10%;">Genere</th>
+                        <th style="width:30%;">Tv Series</th>
+                        <th style="width:30%;">Image</th>
                         <th style="width:10%;">Status</th>
-                        <th style="width:10%;" colspan="2">Manage</th>
+                        <th style="width:30%;">Language</th>
+                        <th style="width:10%;" colspan="3">Manage</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let a of movielist index as i">
-                        <Td><input type="checkbox" formControlName="checkboxs" name="check" value="{{a['id']}}"
-                                (change)="onChange(a['id'])"></Td>
+                    <tr *ngFor="let a of movielist">
                         <td>
-                            <p class="btne" (click)="updateName(a['id'],a['name'])">{{a['name']}}</p>
+                            <p class="btne" (click)="updatepackname(a['id'],a['name'])">{{a['name']}} </p>
                         </td>
-                        <td><a><img (click)="updateImageM(a['id'],a['image'])" [src]="a['image']" alt="404"
-                                    width="100px" /></a></td>
-                        <td>{{a['id']}}</td>
+                        <td><a><img (click)="updateImage(a['id'],a['image'])" [src]="a['image']" alt="404"
+                                    width="100px" /></a>
+                        </td>
                         <td><button type="button" class="btn btn-info"
-                                (click)="updateLanguageM( a['id'],a['language'])">{{a['language']}}</button></td>
+                                (click)="updateStatus( a['id'],a['status'])">{{a['status']}}</button></td>
                         <td><button type="button" class="btn btn-info"
-                                (click)="updateGenere( a['id'],a['genere'])">{{a['genere']}}</button></td>
-                        <td><button type="button" class="btn btn-info"
-                                (click)="updateStatusM( a['id'],a['status'])">{{a['status']}}</button></td>
-                        <td><button [routerLink]="['/Play']" target="_blank" [queryParams]="{id: a['id']}"
+                                (click)="updateLanguage( a['id'],a['language'])">{{a['language']}}</button></td>
+                        <td><input type="file" (change)="Upload($event,a['id'])" id="myFile" name="filename">Upload</td>
+                        <td><button type="button" class="btn btn-info" (click)="download( a['id'])">Download
+                                Links</button></td>
+                        <td><button [routerLink]="['/PlayTv']" target="_blank" [queryParams]="{id: a['id']}"
                                 class="btn btn-danger">Play</button></td>
-                        <td><button (click)="delete(a['id'])" class="btn btn-danger">Delete</button></td>
+                        <td><button (click)="deletetv(a['id'])" class="btn btn-danger">Delete</button></td>
                     </tr>
                 </tbody>
             </table>
-        </form>
-    </div>
-    <br><br><br>
-    <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
-        [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-    <br><br><br><br><br><br>
-    
-</div>
-
-<div *ngIf="cat == 'tv' ">
-    <div class="container">
+        </div>
         <br><br><br>
-        <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
-            [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-        <br>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th style="width:30%;">Tv Series</th>
-                    <th style="width:30%;">Image</th>
-                    <th style="width:10%;">Status</th>
-                    <th style="width:30%;">Language</th>
-                    <th style="width:10%;" colspan="3">Manage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let a of movielist">
-                    <td>
-                        <p class="btne" (click)="updatepackname(a['id'],a['name'])">{{a['name']}} </p>
-                    </td>
-                    <td><a><img (click)="updateImage(a['id'],a['image'])" [src]="a['image']" alt="404" width="100px" /></a>
-                    </td>
-                    <td><button type="button" class="btn btn-info"
-                            (click)="updateStatus( a['id'],a['status'])">{{a['status']}}</button></td>
-                    <td><button type="button" class="btn btn-info"
-                            (click)="updateLanguage( a['id'],a['language'])">{{a['language']}}</button></td>
-                    <td><input type="file" (change)="Upload($event,a['id'])" id="myFile" name="filename">Upload</td>
-                    <td><button type="button" class="btn btn-info" (click)="download( a['id'])">Download Links</button></td>
-                    <td><button [routerLink]="['/PlayTv']" target="_blank" [queryParams]="{id: a['id']}"
-                            class="btn btn-danger">Play</button></td>
-                    <td><button (click)="deletetv(a['id'])" class="btn btn-danger">Delete</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center"
+            [collectionSize]="total" [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false"
+            [boundaryLinks]="true"></ngb-pagination>
+        <br><br><br><br><br><br>
     </div>
-    <br><br><br>
-    <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
-        [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-    <br><br><br><br><br><br>
-</div>
 
-<!-- 
+    <!-- 
 <input type="radio" id="movie" [(ngModel)]="cat" name="cat" value="movie">
-  <label for="html">MovieL</label>
-  <input type="radio" id="tv" [(ngModel)]="cat" name="cat" value="tv">
-  <label for="css">TV</label>
+  <label for="html">MovieL</label>
+  <input type="radio" id="tv" [(ngModel)]="cat" name="cat" value="tv">
+  <label for="css">TV</label>
 
 <div *ngFor="let a of movielist">
     &nbsp; &nbsp;<label>{{a['name']}}</label>&nbsp; &nbsp;<label>{{a['status']}}</label>&nbsp;

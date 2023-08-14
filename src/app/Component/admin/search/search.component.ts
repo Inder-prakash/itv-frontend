@@ -315,6 +315,75 @@ export class SearchComponent implements OnInit {
     });
   }
 
+  updateSize(i: any, name: any) {
+    Swal.fire({
+      title: 'Update Size',
+      input: 'text',
+      inputValue: name,
+      inputAttributes: {
+        autocapitalize: 'off',
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Update',
+      showLoaderOnConfirm: true,
+    }).then((result) => {
+      if (result.value) {
+        this.spinner.show();
+        let movie = new Movie();
+        movie.id = i;
+        movie.size = result.value;
+        this.ms.postService(this.ms.UpdateMovie(), movie).then((res) => {
+          if (res) {
+            this.ViewMovies(this.page);
+          }
+        });
+      } else {
+        Swal.fire(`Request failed`);
+      }
+    });
+  }
+
+  updateLink(i: any, name: any) {
+    Swal.fire({
+      title: 'Update Links',
+      input: 'text',
+      inputValue: name,
+      inputAttributes: {
+        autocapitalize: 'off',
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Update',
+      showLoaderOnConfirm: true,
+    }).then((result) => {
+      if (result.value) {
+        this.spinner.show();
+        let movie = new Movie();
+        movie.id = i;
+        movie.link = result.value;
+        this.ms.postService(this.ms.UpdateMovie(), movie).then((res) => {
+          if (res) {
+            this.ViewMovies(this.page);
+          }
+        });
+      } else {
+        Swal.fire(`Request failed`);
+      }
+    });
+  }
+
+  ViewMovies(i: any) {
+    this.spinner.show();
+    let movie = new Movie();
+    movie.page = i;
+    this.ms.postService(this.ms.ViewMovies(), movie).then((res) => {
+      if (res) {
+        this.movielist = res[0].msg;
+        this.total = res[0].total / 3;
+        this.spinner.hide();
+      }
+    });
+  }
+
   updateGenere(i: any, genere: any) {
     Swal.fire({
       title: 'Update Genere',

@@ -117,6 +117,62 @@ export class ManagemovieComponent implements OnInit {
     });
   }
 
+  updateSize(i: any, name: any) {
+    Swal.fire({
+      title: 'Update Size',
+      input: 'text',
+      inputValue: name,
+      inputAttributes: {
+        autocapitalize: 'off',
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Update',
+      showLoaderOnConfirm: true,
+    }).then((result) => {
+      if (result.value) {
+        this.spinner.show();
+        let movie = new Movie();
+        movie.id = i;
+        movie.size = result.value;
+        this.ms.postService(this.ms.UpdateMovie(), movie).then((res) => {
+          if (res) {
+            this.ViewMovies(this.page);
+          }
+        });
+      } else {
+        Swal.fire(`Request failed`);
+      }
+    });
+  }
+
+  updateLink(i: any, name: any) {
+    Swal.fire({
+      title: 'Update Links',
+      input: 'text',
+      inputValue: name,
+      inputAttributes: {
+        autocapitalize: 'off',
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Update',
+      showLoaderOnConfirm: true,
+    }).then((result) => {
+      if (result.value) {
+        this.spinner.show();
+        let movie = new Movie();
+        movie.id = i;
+        movie.link = result.value;
+        this.ms.postService(this.ms.UpdateMovie(), movie).then((res) => {
+          if (res) {
+            this.ViewMovies(this.page);
+          }
+        });
+      } else {
+        Swal.fire(`Request failed`);
+      }
+    });
+  }
+
   updateGenere(i: any, genere: any) {
     Swal.fire({
       title: 'Update Genere',
