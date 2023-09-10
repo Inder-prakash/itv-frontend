@@ -44,7 +44,9 @@ export class AddmoviepackComponent implements OnInit {
     if (this.coo.get('UserName') != '') {
       if (this.coo.get('Role').localeCompare('Admin')) {
         this.router.navigateByUrl('/movies');
+
       } else {
+        this.getsequals();
       }
     } else {
       this.router.navigateByUrl('/Login');
@@ -110,6 +112,7 @@ export class AddmoviepackComponent implements OnInit {
         this.getsequals();
         this.fieldArray = [];
         this.spinner.hide();
+        this.sequalsIds = [];
       }
     });
   }

@@ -14,6 +14,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./managemoviepack.component.css'],
 })
 export class ManagemoviepackComponent implements OnInit {
+  index: any;
   page: any = 1;
   moviepack = [];
   total = 0;
@@ -47,7 +48,8 @@ export class ManagemoviepackComponent implements OnInit {
     }
   }
 
-  addFieldValue() {
+  addFieldValue(index: any) {
+    console.log(this.newAttribute);
     this.fieldArray.push(this.newAttribute);
     this.newAttribute = {};
   }
@@ -84,6 +86,7 @@ export class ManagemoviepackComponent implements OnInit {
         this.viewmoveiepack();
         this.baseid = '';
         this.spinner.hide();
+        this.sequalsIds = [];
       }
     });
   }
@@ -110,6 +113,7 @@ export class ManagemoviepackComponent implements OnInit {
           .then((res) => {
             if (res) {
               this.viewmoveiepack();
+              this.fieldArray = [];
             }
           });
       } else {
@@ -146,6 +150,7 @@ export class ManagemoviepackComponent implements OnInit {
   }
 
   getsequals(i: any, name: any) {
+    this.fieldArray = [];
     this.spinner.show();
     let seq = new Sequals();
     seq.baseid = i;
@@ -154,7 +159,12 @@ export class ManagemoviepackComponent implements OnInit {
       if (result) {
         this.spinner.hide();
         this.BaseName = name;
+        console.log("Sfsdf", result.msg);
         this.fieldArray = result.msg;
+        if (result.msg == "No Sequals of this movie" || result.msg == "null") {
+          this.fieldArray = [];
+        }
+        console.log(result);
       }
     });
   }
