@@ -30,11 +30,12 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th><button (click)="deleteselected()" class="btn btn-danger">Delete Selected</button></th>
+                            <th><button (click)="deleteselected()" class="btn btn-danger">DS</button></th>
                             <th style="width:60%;">Movie Name</th>
                             <th style="width:20%;">Image</th>
                             <th style="width:10%;">Id</th>
                             <th style="width:10%;">Size</th>
+                            <th style="width:10%;">Res</th>
                             <th style="width:10%;">Link</th>
                             <th style="width:10%;">Language</th>
                             <th style="width:10%;">Genere</th>
@@ -54,6 +55,8 @@
                             <td>{{a['id']}}</td>
                             <td><button type="button" class="btn btn-info"
                                     (click)="updateSize( a['id'],a['size'])">{{a['size']}}</button></td>
+                            <td><button type="button" class="btn btn-info"
+                                    (click)="updateRes( a['id'],a['res'])">{{a['res']}}</button></td>
                             <td><button type="button" class="btn btn-info"
                                     (click)="updateLink( a['id'],a['link'])">Link</button></td>
                             <td><button type="button" class="btn btn-info"
@@ -124,7 +127,7 @@
         <br><br><br><br><br><br>
     </div>
 
-    
+
     <!-- 
 <input type="radio" id="movie" [(ngModel)]="cat" name="cat" value="movie">
   <label for="html">MovieL</label>

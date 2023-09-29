@@ -40,8 +40,10 @@ export class AddmovieComponent implements OnInit {
       image: ['', [Validators.required]],
       size: ['', [Validators.required]],
       link: ['', [Validators.required]],
-      Language: ['', [Validators.required]],
-      Status: ['', [Validators.required]],
+      Language: ['Hindi', [Validators.required]],
+      Status: ['Public', [Validators.required]],
+      Res: ['1080p', [Validators.required]],
+      Sizeunit: ['GB', [Validators.required]],
       Genere: ['', [Validators.required]],
     });
   }
@@ -67,15 +69,28 @@ export class AddmovieComponent implements OnInit {
     let movie = new Movie();
     movie.name = this.myForm.value.name;
     movie.image = this.myForm.value.image;
-    movie.size = this.myForm.value.size;
+    movie.size = this.myForm.value.size + " " + this.myForm.value.Sizeunit;
     movie.link = this.myForm.value.link;
     movie.language = this.myForm.value.Language;
     movie.status = this.myForm.value.Status;
     movie.genere = this.myForm.value.Genere;
+    movie.res = this.myForm.value.Res;
+
+    console.log(movie);
     this.ms.postService(this.ms.AddMovie(), movie).then((res) => {
       if (res) {
         console.log(res);
-        this.myForm.reset();
+        this.myForm = this.formBuilder.group({
+          name: ['', [Validators.required]],
+          image: ['', [Validators.required]],
+          size: ['', [Validators.required]],
+          link: ['', [Validators.required]],
+          Language: ['Hindi', [Validators.required]],
+          Status: ['Public', [Validators.required]],
+          Res: ['1080p', [Validators.required]],
+          Sizeunit: ['GB', [Validators.required]],
+          Genere: ['', [Validators.required]],
+        });
         this.spinner.hide();
         this.submitted = false;
       }

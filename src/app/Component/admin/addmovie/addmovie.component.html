@@ -29,27 +29,64 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="form-label" for="form3Example3cg">Movie Size</label>
-                                    <input type="text" formControlName="size" class="form-control form-control-lg"
+                                    <label class="form-label" for="form3Example3cg">Movie Size</label><br>
+                                    <input style="float: left; width: 100px;" type="text" formControlName="size"
+                                        class="form-control form-control-lg"
                                         [ngClass]="{ 'is-invalid': submitted && f.size.errors }" />
                                     <div *ngIf="submitted && f.size.errors" class="invalid-feedback">
                                         <div *ngIf="f.size.errors.required">Movie Size is required</div>
                                     </div>
-                                </div>
+                                    <div>
+                                        &nbsp; &nbsp;&nbsp;<input formControlName="Sizeunit" type="radio" id="GB"
+                                            name="Sizeunit" value="GB" checked>&nbsp;
+                                        <label for="GB"> GB</label>&nbsp;
+                                        <input formControlName="Sizeunit" type="radio" id="MB" name="Sizeunit"
+                                            value="MB">&nbsp;
+                                        <label for="MB"> MB</label><br>
+                                    </div>
+                                </div><br>
 
                                 <div class="form-group">
-                                    <label class="form-label" for="form3Example3cg">Movie Language</label>
-                                    <select formControlName="Language" [ngClass]="{ 'is-invalid': submitted && f.Language.errors }" class="form-control form-control-lg">
-                                            <option value="Hindi">Hindi</option>
-                                            <option value="English">English</option>
-                                        </select>
-                                    <div *ngIf="submitted && f.Language.errors" class="invalid-feedback">
-                                        <div *ngIf="f.Language.errors.required">Movie Language is required</div>
+                                    <label style="float: left;" class="form-label" for="form3Example3cg">Movie
+                                        Resolution
+                                        : </label>
+                                    <div>
+                                        &nbsp;&nbsp;<input formControlName="Res" type="radio" id="1080p"
+                                            name="movie_res" value="1080p" checked>&nbsp;
+                                        <label for="1080p"> 1080p</label>&nbsp;
+                                        <input formControlName="Res" type="radio" id="720p" name="movie_res"
+                                            value="720p">&nbsp;
+                                        <label for="720p"> 720p</label><br>
                                     </div>
                                 </div>
 
+                                <!-- <div class="form-group">
+                                    <label class="form-label" for="form3Example3cg">Movie Language</label>
+                                    <select formControlName="Language"
+                                        [ngClass]="{ 'is-invalid': submitted && f.Language.errors }"
+                                        class="form-control form-control-lg">
+                                        <option value="Hindi">Hindi</option>
+                                        <option value="English">English</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.Language.errors" class="invalid-feedback">
+                                        <div *ngIf="f.Language.errors.required">Movie Language is required</div>
+                                    </div>
+                                </div> -->
 
                                 <div class="form-group">
+                                    <label style="float: left;" class="form-label" for="form3Example3cg">Movie Language
+                                        : </label>
+                                    <div>
+                                        &nbsp;&nbsp;<input formControlName="Language" type="radio" id="Hindi"
+                                            name="movie_language" value="Hindi" checked>&nbsp;
+                                        <label for="Hindi"> Hindi</label>&nbsp;
+                                        <input formControlName="Language" type="radio" id="English"
+                                            name="movie_language" value="English">&nbsp;
+                                        <label for="English"> English</label><br>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group">
                                     <label class="form-label" for="form3Example3cg">Movie Status</label>
                                     <select formControlName="Status" [ngClass]="{ 'is-invalid': submitted && f.Status.errors }"
                                         class="form-control form-control-lg">
@@ -59,11 +96,25 @@
                                     <div *ngIf="submitted && f.Status.errors" class="invalid-feedback">
                                         <div *ngIf="f.Status.errors.required">Movie Status is required</div>
                                     </div>
+                                </div> -->
+
+                                <div class="form-group">
+                                    <label style="float: left;" class="form-label" for="form3Example3cg">Movie
+                                        Status : </label>
+                                    <div>
+                                        &nbsp;&nbsp;<input formControlName="Status" type="radio" id="Public"
+                                            name="movie_status" value="Public" checked>&nbsp;
+                                        <label for="Public"> Public</label>&nbsp;
+                                        <input formControlName="Status" type="radio" id="Private" name="movie_status"
+                                            value="Private">&nbsp;
+                                        <label for="Private"> Private</label><br>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label" for="form3Example3cg">Movie Genere</label>
-                                    <select formControlName="Genere" [ngClass]="{ 'is-invalid': submitted && f.Genere.errors }"
+                                    <select formControlName="Genere"
+                                        [ngClass]="{ 'is-invalid': submitted && f.Genere.errors }"
                                         class="form-control form-control-lg">
                                         <option value="Genere">Genere</option>
                                         <option value="Comedy">Comedy</option>
@@ -79,7 +130,7 @@
                                     <div *ngIf="submitted && f.Genere.errors" class="invalid-feedback">
                                         <div *ngIf="f.Genere.errors.required">Movie Genere is required</div>
                                     </div>
-                                </div>    
+                                </div>
 
                                 <div class="form-group">
                                     <label class="form-label" for="form3Example3cg">Movie Link</label>

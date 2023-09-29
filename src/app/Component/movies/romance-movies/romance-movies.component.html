@@ -1,4 +1,5 @@
-<div style=" min-height: 1000px;  background-size:cover;  background-attachment: fixed; background-image: url('../../../assets/images/body-bg2.jpg'); ">
+<div
+    style=" min-height: 1000px;  background-size:cover;  background-attachment: fixed; background-image: url('../../../assets/images/body-bg2.jpg'); ">
     <br><br><br>
     <ngb-pagination (pageChange)="pageChanged($event)" class="d-flex justify-content-center" [collectionSize]="total"
         [(page)]="page" [maxSize]="6" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
@@ -10,7 +11,10 @@
                     <a data-toggle="tooltip" data-placement="top" title="a['name']" target="_blank"
                         [routerLink]="['/Play']" [queryParams]="{id: a['id']}">
                         <div class="imgHolder"><span style="width: 60px;"
-                                class="btn btn-warning btn-sm">{{a['language']}}</span></div>
+                                class="btn btn-warning btn-sm">{{a['language']}}</span>
+                            <span style="width: 60px; right: 0;"
+                                class="btn btn-warning btn-sm"><b>{{a['res']}}</b></span>
+                        </div>
                         <img width="182px" height="268px" [src]="a['image']" class="card-img-top" alt="..." />
                     </a>
                     <div style="background-color: antiquewhite;" class="card-body">

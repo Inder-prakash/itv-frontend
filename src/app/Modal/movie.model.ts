@@ -11,6 +11,7 @@ export class Movie {
     public size: any;
     public genere: any;
     public link: any;
-    public page :any;
+    public page: any;
+    public res: any;
 }
 
