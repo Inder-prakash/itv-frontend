@@ -29,7 +29,7 @@ export class MoviepackComponent implements OnInit {
     public ms: MovieService,
     private sanitization: DomSanitizer,
     public http: HttpClientModule
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     console.log(this.coo.get('UserName'));
@@ -51,6 +51,7 @@ export class MoviepackComponent implements OnInit {
     });
   }
   getmovies(i: any) {
+    this.sq = [];
     this.spinner.show();
     let moviepack = new Moviepack();
     moviepack.id = i;

@@ -1,28 +1,28 @@
-<div style=" min-height: 1000px;  background-size:cover;  background-attachment: fixed; background-image: url('../../../assets/images/body-bg2.jpg'); ">
-<br><br>
-<div class="container mydiv">
-    <div id="accordion">
-        <div *ngFor="let m of  moviepack; index as i" class="card">
-            <div class="card-header head">
-                <a (click)="getmovies(m['id'])" class="collapsed card-link" data-toggle="collapse"
-                    href="#collapseTwo{{i}}">
-                    <span style="font-weight: normal; color: white;">{{m['name']}}</span>
-                </a>
-            </div>
-            <div id="collapseTwo{{i}}" class="collapse" data-parent="#accordion">
-                <div [style.display]="pages" class="card-body">
-                    <div *ngFor="let x of sq" class="gallery">
-                        <a data-toggle="tooltip" data-placement="top"  [routerLink]="['/Play']" [queryParams]="{id: x['id']}"
-                         title="{{x['name']}}" target="_blank">
-                            <img class="img" [src]="x['image']">
-                        </a>
-                        <div class="desc">{{x['language']}}</div>
+<div
+    style=" min-height: 1000px;  background-size:cover;  background-attachment: fixed; background-image: url('../../../assets/images/body-bg2.jpg'); ">
+    <br><br>
+    <div class="container mydiv">
+        <div id="accordion">
+            <div *ngFor="let m of  moviepack; index as i" class="card">
+                <div class="card-header head">
+                    <a (click)="getmovies(m['id'])" class="collapsed card-link" data-toggle="collapse"
+                        href="#collapseTwo{{i}}">
+                        <span style="font-weight: normal; color: white;">{{m['name']}}</span>
+                    </a>
+                </div>
+                <div id="collapseTwo{{i}}" class="collapse" data-parent="#accordion">
+                    <div [style.display]="pages" class="card-body">
+                        <div *ngFor="let x of sq" class="gallery">
+                            <a data-toggle="tooltip" data-placement="top" [routerLink]="['/Play']"
+                                [queryParams]="{id: x['id']}" title="{{x['name']}}" target="_blank">
+                                <img class="img" [src]="x['image']">
+                            </a>
+                            <div class="desc">{{x['language']}} {{x['res']}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br><br><br><br><br><br><br><br>
 </div>
-<br><br><br><br><br><br><br><br>
-</div>
-

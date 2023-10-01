@@ -6,14 +6,14 @@ import Swal from 'sweetalert2';
 @Injectable()
 export class AppConfig {
   geturl() {
-    if (this.coo.get('base') == '') {
-      this.baseUrl();
-      return this.coo.get('base');
-    }
-    return this.coo.get('base');
-    // let base = 'http://localhost:8080/';
+    // if (this.coo.get('base') == '') {
+    //   this.baseUrl();
+    //   return this.coo.get('base');
+    // }
+    // return this.coo.get('base');
+    let base = 'http://localhost:8080/';
     // let base = 'https://watchmore.herokuapp.com/';
-    // return base;
+    return base;
   }
 
   constructor(
