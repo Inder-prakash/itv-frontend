@@ -334,9 +334,9 @@ export class SearchComponent implements OnInit {
         movie.size = result.value;
         this.ms.postService(this.ms.UpdateMovie(), movie).then((res) => {
           if (res) {
-            this.ViewMovies(this.page);
-          }
-        });
+            this.spinner.hide();
+            this.onNameChanged(this.page);
+          });
       } else {
         Swal.fire(`Request failed`);
       }
@@ -362,7 +362,8 @@ export class SearchComponent implements OnInit {
         movie.res = result.value;
         this.ms.postService(this.ms.UpdateMovie(), movie).then((res) => {
           if (res) {
-            this.ViewMovies(this.page);
+            this.spinner.hide();
+            this.onNameChanged(this.page);
           }
         });
       } else {
@@ -390,7 +391,8 @@ export class SearchComponent implements OnInit {
         movie.link = result.value;
         this.ms.postService(this.ms.UpdateMovie(), movie).then((res) => {
           if (res) {
-            this.ViewMovies(this.page);
+            this.spinner.hide();
+            this.onNameChanged(this.page);
           }
         });
       } else {
